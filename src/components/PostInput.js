@@ -49,7 +49,7 @@ class PostInput extends React.Component {
           return;
         }
 
-        response.json().then(data => console.log("Received response:" + data));
+        response.json().then(data => console.log("Received response:" + JSON.stringify(data)));
         window.location.reload()
       })
       .catch(error => console.log(error));
