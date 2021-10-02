@@ -12,6 +12,7 @@ class PostInput extends React.Component {
         title: "",
         content: "",
         timestamp: 0,
+        hostname: ""
       },
       submitError: false,
     };
@@ -48,7 +49,7 @@ class PostInput extends React.Component {
           return;
         }
 
-        response.json().then(data => console.log("Recieved response:" + data));
+        response.json().then(data => console.log("Received response:" + data));
         window.location.reload()
       })
       .catch(error => console.log(error));
