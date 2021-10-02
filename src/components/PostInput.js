@@ -35,10 +35,10 @@ class PostInput extends React.Component {
   }
 
   handleSubmit(event) {
-    var now = Date.now();
+    let now = Date.now();
     fetch('posts', {
         method: 'POST',
-        body: JSON.stringify(Object.assign({}, this.state.post, {timestamp: now})),
+        body: JSON.stringify(Object.assign({}, this.state.post, {timestamp: now, hostname: window.location.hostname})),
         headers: {
           'Content-Type': 'application/json'
         }
