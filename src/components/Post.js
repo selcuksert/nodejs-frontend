@@ -48,7 +48,7 @@ class Post extends React.Component {
 
     getDate(epoch, hostname) {
         let d = new Date(parseInt(epoch));
-        return `Posted at ${d.toLocaleTimeString()} on ${d.toLocaleDateString()} at host: ${hostname}`
+        return `Posted at ${d.toLocaleTimeString()} on ${d.toLocaleDateString()} at ${hostname}`
     }
 
     deletePost() {
