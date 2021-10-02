@@ -14,6 +14,7 @@ class Post extends React.Component {
             title: this.props.title,
             content: this.props.content,
             timestamp: this.props.timestamp,
+            hostname: this.props.hostname
         }
         this.deletePost = this.deletePost.bind(this);
     }
@@ -28,25 +29,26 @@ class Post extends React.Component {
                 </Row>
                 <Row className="post-content">
                     <Col>
-                        <ReactMarkdown source={this.state.content} />
+                        <ReactMarkdown source={this.state.content}/>
                     </Col>
                 </Row>
                 <Row className="post-footer justify-content-between">
                     <Col className="post-time">
-                        {this.getDate(this.state.timestamp)}
+                        {this.getDate(this.state.timestamp, this.state.hostname)}
                     </Col>
                     <Col className="delete-post-button" sm={1}>
                         <Button variant="danger" type="submit" onClick={this.deletePost}>
                             Delete
-            </Button>
+                        </Button>
                     </Col>
                 </Row>
             </Container>
         )
     }
-    getDate(epoch) {
-        var d = new Date(parseInt(epoch));
-        return "Posted at " + d.toLocaleTimeString() + " on " + d.toLocaleDateString()
+
+    getDate(epoch, hostname) {
+        let d = new Date(parseInt(epoch));
+        return `Posted at ${d.toLocaleTimeString()} on ${d.toLocaleDateString()} at ${hostname}`
     }
 
     deletePost() {

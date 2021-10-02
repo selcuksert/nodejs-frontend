@@ -43,3 +43,6 @@ node-frontend/build
 node-frontend/node_modules
 quarkus-backend/bin/
 .DS_Store
+/.idea/
+/node_modules/
+/build/
